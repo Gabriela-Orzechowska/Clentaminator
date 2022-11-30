@@ -12,9 +12,14 @@ namespace Clentaminator
             {
                 if(File.Exists(arg))
                 {
-                    int fixedMaterials = Purifier.PurifyMdl0(arg);
-                    if(fixedMaterials != -1)
-                        Console.WriteLine("File: {0}, Fixed Materials: {1}",arg,fixedMaterials);
+                    int purify = Purifier.PurifyMdl0(arg);
+                    if(purify != -1)
+                        if(purify == 0) Console.WriteLine("File: {0}: Good job, not corruptions found.",arg);
+                        else Console.WriteLine("File: {0}: Fixed Materials: {1}",arg,purify);
+                }
+                else
+                {
+                    Console.WriteLine("Cound not find the file: {0}",arg);
                 }
             }
             
@@ -23,7 +28,7 @@ namespace Clentaminator
 
     public static class Purifier
     {
-        public static int fixedMaterials = 0;
+        public static int FixedMaterials = 0;
         public static int PurifyMdl0(string path)
         {
             Stream input = File.Open(path, FileMode.Open);
@@ -44,7 +49,7 @@ namespace Clentaminator
                 PurifyMaterial(input,materialDataOffset);
             }
 
-            return fixedMaterials;
+            return FixedMaterials;
 
 
 
@@ -98,7 +103,7 @@ namespace Clentaminator
                 input.Write(dataToFix,0,dataToFix.Length);    
                 input.Position = offset + 5;
                 input.Write(dataToFix,0,dataToFix.Length);
-                fixedMaterials += 1;
+                FixedMaterials += 1;
             }
 
         }
