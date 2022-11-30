@@ -8,18 +8,22 @@ namespace Clentaminator
     {
         static void Main(string[] args)
         {
+            if (args.Length == 0)
+            {
+                Console.WriteLine("Usage: clentaminator <file_paths>");
+            }
             foreach (var arg in args)
             {
                 if(File.Exists(arg))
                 {
                     int purify = Purifier.PurifyMdl0(arg);
                     if(purify != -1)
-                        if(purify == 0) Console.WriteLine("File: {0}: Good job, not corruptions found.",arg);
+                        if(purify == 0) Console.WriteLine("File: {0}: Good job, no corruptions found.",arg);
                         else Console.WriteLine("File: {0}: Fixed Materials: {1}",arg,purify);
                 }
                 else
                 {
-                    Console.WriteLine("Cound not find the file: {0}",arg);
+                    Console.WriteLine("Could not find the file: {0}",arg);
                 }
             }
             
@@ -80,6 +84,9 @@ namespace Clentaminator
                 }
                 
             } while (currentShaderCommand.command != WiiFormats.Mdl0MaterialShader.Command.None);
+            Console.WriteLine("Material");
+            Console.WriteLine(isIndirect);
+            Console.WriteLine(matrixFound);
             if (isIndirect && !matrixFound)
             {
                 FixMatrix(input, offset26);
@@ -99,6 +106,7 @@ namespace Clentaminator
             }
             if(check == 0)
             {
+                //Please don't ask, at least it works
                 input.Position = offset + 5;
                 input.Write(dataToFix,0,dataToFix.Length);    
                 input.Position = offset + 5;
