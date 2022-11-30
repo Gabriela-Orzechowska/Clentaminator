@@ -31,7 +31,7 @@ namespace Clentaminator
         {
             Stream input = File.Open(path, FileMode.Open);
             
-            long mdl0Offset = GetOffset(input);
+            long mdl0Offset = GetOffset(input,path);
             if (mdl0Offset == -1) return -1;
             input.Position = mdl0Offset;
             
@@ -97,27 +97,28 @@ namespace Clentaminator
             }
             if(check == 0)
             {
-                
+                input.Position = offset + 5;
+                input.Write(dataToFix,0,dataToFix.Length);    
                 input.Position = offset + 5;
                 input.Write(dataToFix,0,dataToFix.Length);
                 fixedMaterials += 1;
             }
 
         }
-        private static int GetOffset(Stream input)
+        private static int GetOffset(Stream input, string filename)
         {
             string format = Mdl0Decoder.GetFormat(input);
             switch (format)
             {
                 case "Yaz0":
-                    Console.WriteLine("Could not read the file: YAZ0 archives are not supported.");
+                    Console.WriteLine("File {0}: Could not read the file: YAZ0 archives are not supported.",filename);
                     return -1;
                 case "bres":
                     return (int) Mdl0Decoder.Mdl0Offset(input);
                 case "MDL0":
                     return 0;
                 default:
-                    Console.WriteLine("Could not read the file: Unknown format");
+                    Console.WriteLine("File {0}: Could not read the file: Unknown format",filename);
                     return -1;
             }
             
