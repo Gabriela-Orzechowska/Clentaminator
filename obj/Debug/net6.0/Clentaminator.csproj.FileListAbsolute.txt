@@ -1,0 +1,15 @@
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\bin\Debug\net6.0\Clentaminator.exe
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\bin\Debug\net6.0\Clentaminator.deps.json
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\bin\Debug\net6.0\Clentaminator.runtimeconfig.json
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\bin\Debug\net6.0\Clentaminator.dll
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\bin\Debug\net6.0\Clentaminator.pdb
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\obj\Debug\net6.0\Clentaminator.csproj.AssemblyReference.cache
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\obj\Debug\net6.0\Clentaminator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\obj\Debug\net6.0\Clentaminator.AssemblyInfoInputs.cache
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\obj\Debug\net6.0\Clentaminator.AssemblyInfo.cs
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\obj\Debug\net6.0\Clentaminator.csproj.CoreCompileInputs.cache
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\obj\Debug\net6.0\Clentaminator.dll
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\obj\Debug\net6.0\refint\Clentaminator.dll
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\obj\Debug\net6.0\Clentaminator.pdb
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\obj\Debug\net6.0\Clentaminator.genruntimeconfig.cache
+C:\Users\Gabi\RiderProjects\Clentaminator\Clentaminator\obj\Debug\net6.0\ref\Clentaminator.dll
