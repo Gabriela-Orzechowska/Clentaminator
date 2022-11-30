@@ -84,9 +84,6 @@ namespace Clentaminator
                 }
                 
             } while (currentShaderCommand.command != WiiFormats.Mdl0MaterialShader.Command.None);
-            Console.WriteLine("Material");
-            Console.WriteLine(isIndirect);
-            Console.WriteLine(matrixFound);
             if (isIndirect && !matrixFound)
             {
                 FixMatrix(input, offset26);
