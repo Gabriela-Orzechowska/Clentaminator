@@ -139,14 +139,14 @@ namespace Clentaminator
             }
         }
 
-        public struct Mdl0MaterialShader
+        public struct Mdl0GraphicCommands
         {
             public Command command;
             public byte address;
             public byte[] data;
             public long offset;
 
-            public Mdl0MaterialShader(Stream input)
+            public Mdl0GraphicCommands(Stream input)
             {
                 BigEndianReader reader = new BigEndianReader(input);
                 byte value = 0;
@@ -196,13 +196,40 @@ namespace Clentaminator
                 
             }
 
-            public enum Command
+            
+        }
+
+        public struct Mdl0TevSimple
+        {
+            public ulong dataLenght;
+            public ulong index;
+            public byte layerCount;
+            public byte[] shaderData;
+            public long shaderDataPosition;
+
+            public Mdl0TevSimple(Stream input)
             {
-                LoadCP = 0x08,
-                LoadXF = 0x10,
-                LoadBP = 0x61,
-                None = 0xFF
+                long initialPosition = input.Position;
+                BigEndianReader reader = new BigEndianReader(input);
+                dataLenght = reader.ReadUInt32();
+                input.Position = initialPosition + 0x08;
+                index = reader.ReadUInt32();
+                input.Position = initialPosition + 0x0C;
+                layerCount = reader.ReadByte();
+                shaderDataPosition = 0x20;
+                long shaderDataLenght = (long) dataLenght - shaderDataPosition;
+                input.Position = initialPosition + shaderDataPosition;
+                shaderData = new byte[shaderDataLenght];
+                shaderData = reader.ReadBytes((int)shaderDataLenght);
             }
+            
+        }
+        public enum Command
+        {
+            LoadCP = 0x08,
+            LoadXF = 0x10,
+            LoadBP = 0x61,
+            None = 0xFF
         }
     }
 }
