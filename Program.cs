@@ -9,9 +9,10 @@ namespace Clentaminator
     {
         static void Main(string[] args)
         {
-            if (args.Length == 0)
+            if (args.Length == 0 || args[0]=="-h")
             {
                 Console.WriteLine("Usage: clentaminator <file_paths>");
+                return;
             }
             foreach (var arg in args)
             {
