@@ -1,2 +1,8 @@
 bin/Debug/*
 bin/Release/*
+obj/Release/net6.0/refint/Clentaminator.dll
+obj/Release/net6.0/ref/Clentaminator.dll
+obj/Release/net6.0/Clentaminator.pdb
+obj/Release/net6.0/Clentaminator.dll
+bin/Release/net6.0/Clentaminator.exe
+bin/Release/net6.0/Clentaminator.rar
